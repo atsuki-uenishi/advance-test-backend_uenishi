@@ -61,7 +61,7 @@ class ContactController extends Controller
                     'data' => $items
                     ], 200);
             } elseif($request->name && $request->gender && !$request->dateAfter && !$request->dateBefore && $request->email) {
-                $items = Contact::where('fullname', $request->name)->where('gender', $request->gender)->whereDate('created_at', '>=', $request->dateAfter)->whereDate('created_at', '<=', $request->dateBefore)->where('email',$request->email)->get();
+                $items = Contact::where('fullname', $request->name)->where('gender', $request->gender)->where('email',$request->email)->get();
                 return response()->json([
                     'data' => $items
                     ], 200);
